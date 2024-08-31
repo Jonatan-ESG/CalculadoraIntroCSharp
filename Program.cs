@@ -6,16 +6,9 @@
         {
             try
             {
-                SaludoInicial();
-                string opcionReadLine = Console.ReadLine();
+                int opcion = SolicitarOpcion();
 
-                int opcion;
-
-                if (int.TryParse(opcionReadLine, out opcion) == false)
-                {
-                    Console.WriteLine("La opción debe ser un número entero");
-                    return;
-                }
+                if (opcion == 0) return;
 
                 Console.WriteLine("Ingrese el primer número:");
 
@@ -40,24 +33,16 @@
                 switch (opcion)
                 {
                     case 1:
-                        resultado = Suma(primerNumero, segundoNumero);
+                        resultado = Sumar(primerNumero, segundoNumero);
                         break;
                     case 2:
-                        resultado = primerNumero - segundoNumero;
+                        resultado = Restar(primerNumero, segundoNumero);
                         break;
                     case 3:
-                        resultado = primerNumero * segundoNumero;
+                        resultado = Multiplicar(primerNumero, segundoNumero);
                         break;
                     case 4:
-                        if (segundoNumero != 0)
-                        {
-                            resultado = primerNumero / segundoNumero;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Error: No se puede dividir por cero.");
-                            return;
-                        }
+                        resultado = Dividir(primerNumero, segundoNumero);
                         break;
                     default:
                         Console.WriteLine("Opción no válida.");
@@ -72,12 +57,36 @@
             }
         }
 
-        public static double Suma(double primerNumero, double segundoNumero) {
+        public static double Sumar(double primerNumero, double segundoNumero)
+        {
             double resultado = primerNumero + segundoNumero;
-            return resultado;        
+            return resultado;
+        }
+        public static double Restar(double primerNumero, double segundoNumero)
+        {
+            double resultado = primerNumero - segundoNumero;
+            return resultado;
+        }
+        public static double Multiplicar(double primerNumero, double segundoNumero)
+        {
+            double resultado = primerNumero * segundoNumero;
+            return resultado;
+        }
+        public static double Dividir(double primerNumero, double segundoNumero)
+        {
+            double resultado = 0;
+            if (segundoNumero == 0)
+            {
+                Console.WriteLine("Error: No se puede dividir por cero.");
+            }
+            else
+            {
+                resultado = primerNumero / segundoNumero;
+            }
+            return resultado;
         }
 
-        public static void SaludoInicial()
+        public static int SolicitarOpcion()
         {
             Console.WriteLine("Bienvenido a la calculadora");
             Console.WriteLine("Seleccione una operación:");
@@ -85,6 +94,18 @@
             Console.WriteLine("2. Resta");
             Console.WriteLine("3. Multiplicación");
             Console.WriteLine("4. División");
+
+            int opcion = 0;
+
+            string opcionReadLine = Console.ReadLine();
+
+            if (int.TryParse(opcionReadLine, out opcion) == false)
+            {
+                Console.WriteLine("La opción debe ser un número entero");
+            }
+
+            return opcion;
+
         }
 
     }
