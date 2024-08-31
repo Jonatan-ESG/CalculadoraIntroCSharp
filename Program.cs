@@ -26,8 +26,25 @@
                 case 1:
                     resultado = primerNumero + segundoNumero;
                     break;
+                case 2:
+                    resultado = primerNumero - segundoNumero;
+                    break;
+                case 3:
+                    resultado = primerNumero * segundoNumero;
+                    break;
+                case 4:
+                    if (segundoNumero != 0)
+                    {
+                        resultado = primerNumero / segundoNumero;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Error: No se puede dividir por cero.");
+                        return;
+                    }
+                    break;
                 default:
-                    Console.WriteLine("Opción no válida");
+                    Console.WriteLine("Opción no válida.");
                     return;
             }
 
