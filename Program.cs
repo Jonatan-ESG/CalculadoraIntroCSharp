@@ -7,14 +7,13 @@
             try
             {
                 int opcion = SolicitarOpcion();
+                double primerNumero;
+                double segundoNumero;
 
                 if (opcion == 0) return;
 
                 Console.WriteLine("Ingrese el primer número:");
-
-                double primerNumero;
-                double segundoNumero;
-
+                
                 if (double.TryParse(Console.ReadLine(), out primerNumero) == false)
                 {
                     Console.WriteLine("El primer número debe ser un número entero o decimal");
