@@ -6,13 +6,7 @@
         {
             try
             {
-                Console.WriteLine("Bienvenido a la calculadora");
-                Console.WriteLine("Seleccione una operación:");
-                Console.WriteLine("1. Suma");
-                Console.WriteLine("2. Resta");
-                Console.WriteLine("3. Multiplicación");
-                Console.WriteLine("4. División");
-
+                SaludoInicial();
                 string opcionReadLine = Console.ReadLine();
 
                 int opcion;
@@ -46,7 +40,7 @@
                 switch (opcion)
                 {
                     case 1:
-                        resultado = primerNumero + segundoNumero;
+                        resultado = Suma(primerNumero, segundoNumero);
                         break;
                     case 2:
                         resultado = primerNumero - segundoNumero;
@@ -76,7 +70,21 @@
             {
                 Console.WriteLine($"Error: {ex.Message}");
             }
+        }
 
+        public static double Suma(double primerNumero, double segundoNumero) {
+            double resultado = primerNumero + segundoNumero;
+            return resultado;        
+        }
+
+        public static void SaludoInicial()
+        {
+            Console.WriteLine("Bienvenido a la calculadora");
+            Console.WriteLine("Seleccione una operación:");
+            Console.WriteLine("1. Suma");
+            Console.WriteLine("2. Resta");
+            Console.WriteLine("3. Multiplicación");
+            Console.WriteLine("4. División");
         }
 
     }
