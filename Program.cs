@@ -24,10 +24,22 @@
                 }
 
                 Console.WriteLine("Ingrese el primer número:");
-                double primerNumero = Convert.ToDouble(Console.ReadLine());
+
+                double primerNumero;
+                double segundoNumero;
+
+                if (double.TryParse(Console.ReadLine(), out primerNumero) == false)
+                {
+                    Console.WriteLine("El primer número debe ser un número entero o decimal");
+                    return;
+                }
 
                 Console.WriteLine("Ingrese el segundo número:");
-                double segundoNumero = Convert.ToDouble(Console.ReadLine());
+                if (double.TryParse(Console.ReadLine(), out segundoNumero) == false)
+                {
+                    Console.WriteLine("El primer número debe ser un número entero o decimal");
+                    return;
+                }
 
                 double resultado = 0;
 
